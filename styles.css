@@ -1,0 +1,288 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+:root {
+  
+  /* DARKMODE Standard Colors */
+  /* BACKGROUND Colors */
+  --bg-dark: hsl(0, 0%, 16%);
+  --bg: hsl(0, 0%, 25%);
+  --bg-light: hsl(0, 0%, 36%);
+  
+  /* TEXT Colors */
+  --text:hsl(0, 0%, 95%);
+  --text-muted:hsl(0%, 0%, 70%);  
+
+  /* BORDERS GRADIENTS Colors */
+  --border:hsl(0%, 0%, 30%);  
+  --gradient:linear-gradient(0deg, var(--bg) 95%, var(--bg-light));  
+  --gradient-hover:linear-gradient(0deg, var(--bg), var(--bg-light));  
+  --highlight: hsl(0, 0%,80%);
+  --border-card: solid 1px var(--bg);
+  --shadow: 5px 15px 2px hsla(0, 0%, 0%, 0.15), 5px 20px 3px hsla(0, 0%, 0%, 0.25);
+  --Colorshadow: 0px 10px 10px var(--Ybg1), 0px 15px 20px var(--Bbg1);
+  /* ACTION */
+  --primary: hsl(155 56% 54%);
+  --secondary: #4AF262;
+
+  /* Altert */
+  --danger: hsl(7 89% 66%);
+  --warning: hsl(54 100% 25%);
+  --success: hsl(162 100% 29%);
+  --info: hsl(217 100% 69%);
+
+  /* Yellow Logo Color Pallet */
+  --Ylogo: #ffbd59;
+  --Ybg1: hsla(from var(--Ylogo) h s 70%);
+  --Yborder: hsl(from var(--Ylogo) h s 20%);
+  --Ytext: hsl(from var(--Ylogo) h s 20%);
+  --Ytext-muted: hsl(from var(--Ylogo) h s 20%);
+  --Primary: hsl(from var(--Ylogo) h s 20%);
+  --Primary-muted: hsl(from var(--Ylogo) h s 20%);
+
+  /* Blue Logo Color Pallet */
+  --Blogo: #5170ff;
+  --Bbg1: hsl(from var(--Blogo) h s 60%);
+  --Bborder: hsl(from var(--Blogo) h s 20%);
+  --Btext: hsl(from var(--Blogo) h s 20%);
+  --Btext-muted: hsl(from var(--Blogo) h s 20%);
+  --Primary: hsl(from var(--Blogo) h s 20%);
+  --Primary-muted: hsl(from var(--Blogo) h s 20%);
+
+  /* Retro Terminal Colors */
+  --TermText1: #008000;
+  --TermText2: #00FF00;
+  --TermText3: #4AF262;
+  --TermColor: #282828;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arvo', sans-serif;
+}
+
+
+.showcase{
+  position: absolute;
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  z-index: 2;
+  transition: 0.7s;
+}
+
+.showcase.active{
+  right: 300px;
+}
+
+.logo{
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.showcase header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 100px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toggle{
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: url('media/plogo.png');
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: center;
+  cursor: pointer;
+}
+
+.toggle.active{
+  background: url('media/headshot_pete_favicon.png');
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: center;
+}
+
+.showcase video{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .5;
+}
+
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-light);
+  mix-blend-mode: overlay;
+}
+
+.text{
+  position: relative;
+  z-index: 10;
+}
+
+.text h2{
+  font-size: 6em;
+  font-weight: 800;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+.text h3{
+  font-size: 3em;
+  font-weight: 700;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+.text p{
+  font-size: 1.1em;
+  margin: 20px 0;
+  max-width: 600px;
+}
+
+.text a{
+  background-color: var(--Bbg1);
+  border-radius: 30px;
+  display: inline-block;
+  font-size: 1em;
+  padding: 10px 30px;
+  text-decoration: none;
+  color: var(--Ybg1);
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.5s;
+}
+
+.text a:hover{
+  letter-spacing: 6px;
+  background-color: var(--Ybg1);
+  color: var(--Bbg1);
+}
+
+
+.text button{
+  background-color: var(--Ybg1);
+  border-radius: 30px;
+  display: block;
+  font-size: 1em;
+  padding: 10px 30px;
+  text-decoration: none;
+  color: var(--Bbg1);
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 3s;
+}
+
+.text button:hover{
+  letter-spacing: 10px;
+  color: var(--Ybg1);
+  background-color: var(--Bbg1);
+}
+
+.social{
+  position: absolute;
+  bottom: 20px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social li{
+  list-style: none;
+}
+
+.social li a{
+  display: inline-block;
+  filter: invert(1);
+  margin-right: 20px;
+  transform: scale(0.5);
+  transition: 0.5s;
+}
+
+.social li a:hover{
+  transform: scale(0.5) translateY(-15px);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  background: var(--gradient);
+  transition: .8s;
+}
+
+.navbar ul{
+  position: relative;
+  list-style: none;
+}
+
+.navbar ul li a{
+  text-decoration: none;
+  font-size: 24px;
+  color: var(--Ybg1);
+  transition: .5s;
+  
+}
+
+.navbar ul li a:hover{
+  color: var(--Bbg1);
+  background-color: var(--Ybg1);
+
+}
+
+.navbar:hover{
+    background: var(--Btext);
+}
+
+.navbar img{
+    width: 50px;                /* same as before */
+    height: 50px;
+               /* keeps image proportion correct */
+}
+
+@media(max-width: 798px){
+  .showcase, .showcase header{
+    padding: 40px;
+  }
+
+  .text h2 {
+    font-size: 3em;
+  }
+
+  .text h2{
+    font-size: 2em;
+  }
+}
+
+
+
+

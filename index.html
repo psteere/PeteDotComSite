@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pete.st</title>
+    <link rel="icon" type="image/png" href="./media/headshot_pete_favicon.png">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <body>
+        <section class="showcase">
+            <header>
+                <h2 class="logo">I'm Pete</h2>
+                <div class="toggle"></div>
+            </header>
+            <video src="media/ShredMontWebwicksmall.mp4" muted loop autoplay></video>
+            <div class="overlay"></div>
+            <div class="text">
+                <h2>Find</h2>
+                <h3>The Menu</h3>
+                <p>There is a menu somewhere on this page. <br>You gotta click somethin.</p>
+                <a href="#">CLICK ME</a>
+                <button id="myButton">Maybe This?</button>
+            </div>
+                
+
+            <ul class="social">
+                <li><a href="https://www.linkedin.com/in/petesteere/" target="_blank"><img src="media/linkedin.png" alt=""></a></li>
+            </ul>
+        </section>
+
+        <nav class="navbar"> 
+            <!-- <div class="logo"><a href="#"><img src="media/plogo.png" alt="petelogo"></div> -->
+            <ul>
+                <!-- <li><a href=""><img src="media/NavBar_Header1_home.png"></a></li> -->
+                <li><a href="">Hahaha!</a></li>
+                <li><a href="">Music</a></li>
+                <li><a href="">What's Doin'</a></li>
+                <li><a href="">Computers</a></li>
+                <li><a href="">Art</a></li>
+                <li><a href="">Philosophy</a></li>
+                <li><a href="">About Me</a></li>
+                <li><a href="">About You</a></li>          
+            </ul>
+        </nav>
+
+        
+
+        <script>
+            // Get a reference to the button
+            const button = document.getElementById('myButton');
+
+            // Add an event listener to change the text when clicked
+            button.addEventListener('click', function() {
+            button.textContent = "that's not gonna do you any good...";
+            });
+        </script>
+    
+        <script>
+            const menuToggle = document.querySelector('.toggle')
+            const showcase = document.querySelector('.showcase')
+
+            menuToggle.addEventListener('click', () =>{
+                menuToggle.classList.toggle('active')
+                showcase.classList.toggle('active')
+            })
+        </script>
+    </body>
+
+<!--     
+    <main>
+        <h3>This is the Home Page</h3>
+        <img src="media/headshot_pete.png" width="200" height="200" alt="petehead" class="headshot">
+        <p>Lorem = Paragerams</p>
+    </main> -->
+    
+    <h2><a href="Career.html"><strong>Career!</strong></a></h2> -->
+</body>
+</html>
+
+
+
+
