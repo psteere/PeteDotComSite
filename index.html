@@ -13,6 +13,8 @@
             <header>
                 <h2 class="logo">I'm Pete</h2>
                 <div class="toggle"></div>
+                <audio id="Whoo" src="media/WooHoo.mp3" preload="auto"></audio>
+
             </header>
             <video src="media/ShredMontWebwicksmall.mp4" muted loop autoplay></video>
             <div class="overlay"></div>
@@ -20,8 +22,10 @@
                 <h2>Find</h2>
                 <h3>The Menu</h3>
                 <p>There is a menu somewhere on this page. <br>You gotta click somethin.</p>
-                <a href="#">CLICK ME</a>
-                <button id="myButton">Maybe This?</button>
+                <button id="Button1">Click Me!</button>
+                <audio id="Song1" src="media/El Cargo.mp3" preload="auto"></audio>
+                <button id="Button2">Maybe This?</button>
+                <audio id="Song2" src="media/The Lighthouse.mp3" preload="auto"></audio>
             </div>
                 
 
@@ -46,20 +50,50 @@
         </nav>
 
         
-
+        <!-- //Button 1 Actions -->
         <script>
             // Get a reference to the button
-            const button = document.getElementById('myButton');
+            const button1 = document.getElementById('Button1');
+            const Song1 = document.getElementById("Song1");
 
             // Add an event listener to change the text when clicked
-            button.addEventListener('click', function() {
-            button.textContent = "that's not gonna do you any good...";
+            button1.addEventListener('click', () => {
+                if (Song1.paused){
+                    Song1.play();
+                    button1.textContent = "that's not gonna do you any good...";
+                } else{
+                    Song1.pause();
+                    button1.textContent = "Click Me!";
+                }
+            });
+        </script>
+
+        <!-- //Button 2 Actions -->
+        <script>
+             // Get a reference to the button
+            const button2 = document.getElementById('Button2');
+            const Song2 = document.getElementById("Song2");
+
+            // Add an event listener to change the text when clicked
+            button2.addEventListener('click', () => {
+                if (Song2.paused){
+                    Song2.play();
+                    button2.textContent = "Woah!";
+                } else{
+                    Song2.pause();
+                    button2.textContent = "Try Me!";
+                }
             });
         </script>
     
         <script>
             const menuToggle = document.querySelector('.toggle')
             const showcase = document.querySelector('.showcase')
+            const Whoo = document.getElementById("Whoo");
+
+            menuToggle.addEventListener('click', function() {
+                Whoo.play();
+            }, { once: true });
 
             menuToggle.addEventListener('click', () =>{
                 menuToggle.classList.toggle('active')
