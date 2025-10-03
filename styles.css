@@ -73,12 +73,7 @@
   justify-content: space-between;
   align-items: center;
   color: white;
-  z-index: 2;
   transition: 0.7s;
-}
-
-.showcase.active{
-  right: 300px;
 }
 
 .logo{
@@ -92,7 +87,7 @@
   left: 0;
   width: 100%;
   padding: 40px 100px;
-  z-index: 1000;
+  z-index: 990;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -107,13 +102,18 @@
   background-size: 30px;
   background-position: center;
   cursor: pointer;
+  z-index: 1000;
+  right: 0;
+  transition: .75s ease;
 }
 
 .toggle.active{
-  background: url('media/headshot_pete_favicon.png');
+  right: 135px;
+  /* background: url('media/headshot_pete_favicon.png'); */
   background-repeat: no-repeat;
-  background-size: 25px;
+  background-size: 30px;
   background-position: center;
+  z-index: 1000;
 }
 
 .showcase video{
@@ -229,23 +229,28 @@
 
 .navbar {
   position: fixed;
-  top: 0;
-  right: 0;
+  padding-top: 45px;
+  padding-bottom: 30px;
+  right: -300px;
   width: 300px;
   height: 100%;
   display: flex;
-  align-items: top;
+  align-items: center;
   justify-content: center;
   background: var(--gradient);
-  transition: .8s;
+  transition: .7s ease;
+  z-index: 900;
+ 
 }
 
 .navbar ul{
-  position: relative;
   list-style: none;
 }
 
 .navbar ul li a{
+  display: block;
+  width: 300px;
+  padding: 20px;
   text-decoration: none;
   font-size: 24px;
   color: var(--Ybg1);
@@ -253,15 +258,36 @@
   
 }
 
-.navbar ul li a:hover{
-  color: var(--Bbg1);
-  background-color: var(--Ybg1);
+nav ul li:first-child a {border-left: 10px solid var(--Ybg1);}
+nav ul li:nth-child(2) a {border-left: 10px solid var(--Bbg1);}
+nav ul li:nth-child(3) a {border-left: 10px solid var(--Ybg1);}
+nav ul li:nth-child(4) a {border-left: 10px solid var(--Bbg1);}
+nav ul li:nth-child(5) a {border-left: 10px solid var(--Ybg1);}
+nav ul li:nth-child(6) a {border-left: 10px solid var(--Bbg1);}
+nav ul li:nth-child(7) a {border-left: 10px solid var(--Ybg1);}
+nav ul li:nth-child(8) a {border-left: 10px solid var(--Ybg1);}
+nav ul li:last-child   a {border-left: 10px solid var(--Bbg1);}
 
+nav li a::after{
+  content: '';
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 0px;
+  position: aboslute;
+  transition: all 0.3s ease;
 }
 
-.navbar:hover{
-    background: var(--Btext);
-}
+nav li a:hover::after {width: 100%;}
+nav ul li:first-child a::after {background: var(--Ybg1);}
+nav ul li:nth-child(2) a::after {background: var(--Bbg1);}
+nav ul li:nth-child(3) a::after {background: var(--Ybg1);}
+nav ul li:nth-child(4) a::after {background: var(--Bbg1);}
+nav ul li:nth-child(5) a::after {background: var(--Ybg1);}
+nav ul li:nth-child(6) a::after {background: var(--Bbg1);}
+nav ul li:nth-child(7) a::after {background: var(--Ybg1);}
+nav ul li:nth-child(8) a::after {background: var(--Ybg1);}
+nav ul li:last-child   a::after {background: var(--Bbg1);}
 
 .navbar img{
     width: 50px;                /* same as before */
@@ -269,7 +295,99 @@
                /* keeps image proportion correct */
 }
 
+
+
+
+.navbar.active{
+  position: fixed;
+  top: 0;
+  right: 0px;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient);
+  z-index: 900;
+}
+
+.navbar.active ul{
+  position: relative;
+  list-style: none; 
+  width: 300px;
+}
+
+.navbar.active ul li{
+  width: 300px;
+}
+
+.navbar.active ul li a{
+   display: block;
+  width: 300px;
+  padding: 20px;
+  text-decoration: none;
+  font-size: 24px;
+  color: var(--Ybg1);
+  transition: .5s;
+}
+
+
+.navbar.active ul li:first-child a {border-left: 10px solid var(--Ybg1);}
+.navbar.active ul li:nth-child(2) a {border-left: 10px solid var(--Bbg1);}
+.navbar.active ul li:nth-child(3) a {border-left: 10px solid var(--Ybg1);}
+.navbar.active ul li:nth-child(4) a {border-left: 10px solid var(--Bbg1);}
+.navbar.active ul li:nth-child(5) a {border-left: 10px solid var(--Ybg1);}
+.navbar.active ul li:nth-child(6) a {border-left: 10px solid var(--Bbg1);}
+.navbar.active ul li:nth-child(7) a {border-left: 10px solid var(--Ybg1);}
+.navbar.active ul li:nth-child(8) a {border-left: 10px solid var(--Ybg1);}
+.navbar.active ul li:last-child   a {border-left: 10px solid var(--Bbg1);}
+
+.navbar.active li a::after{
+  content: '';
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 0px;
+  position: aboslute;
+  transition: all 0.3s ease;
+}
+
+.navbar.active li a:hover::after {width: 100%;}
+.navbar.active ul li:first-child a::after {background: var(--Ybg1);}
+.navbar.active ul li:nth-child(2) a::after {background: var(--Bbg1);}
+.navbar.active ul li:nth-child(3) a::after {background: var(--Ybg1);}
+.navbar.active ul li:nth-child(4) a::after {background: var(--Bbg1);}
+.navbar.active ul li:nth-child(5) a::after {background: var(--Ybg1);}
+.navbar.active ul li:nth-child(6) a::after {background: var(--Bbg1);}
+.navbar.active ul li:nth-child(7) a::after {background: var(--Ybg1);}
+.navbar.active ul li:nth-child(8) a::after {background: var(--Ybg1);}
+.navbar.active ul li:last-child   a::after {background: var(--Bbg1);}
+
+/* 
+/* .navbar.active ul li a:hover{
+  color: var(--Bbg1);
+  background-color: var(--Ybg1);
+}
+
+.navbar.active:hover{
+    background: var(--Btext);
+}
+
+.navbar.active img{
+    width: 50px;               
+    height: 50px;               /* keeps image proportion correct
+} */
+
 @media(max-width: 798px){
+  
+  .toggle.active{
+    right: 95px;
+  }
+
+  .navbar.active {
+    width: 200px;
+  }
+
   .showcase, .showcase header{
     padding: 40px;
   }

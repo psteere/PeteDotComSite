@@ -14,9 +14,8 @@
                 <h2 class="logo">I'm Pete</h2>
                 <div class="toggle"></div>
                 <audio id="Whoo" src="media/WooHoo.mp3" preload="auto"></audio>
-
             </header>
-            <video src="media/ShredMontWebwicksmall.mp4" muted loop autoplay></video>
+            <!-- <video src="media/ShredMontWebwicksmall.mp4" muted loop autoplay></video> -->
             <div class="overlay"></div>
             <div class="text">
                 <h2>Find</h2>
@@ -88,7 +87,7 @@
     
         <script>
             const menuToggle = document.querySelector('.toggle')
-            const showcase = document.querySelector('.showcase')
+            const navBar = document.querySelector('.navbar')
             const Whoo = document.getElementById("Whoo");
 
             menuToggle.addEventListener('click', function() {
@@ -97,19 +96,11 @@
 
             menuToggle.addEventListener('click', () =>{
                 menuToggle.classList.toggle('active')
-                showcase.classList.toggle('active')
+                navBar.classList.toggle('active')
             })
         </script>
     </body>
 
-<!--     
-    <main>
-        <h3>This is the Home Page</h3>
-        <img src="media/headshot_pete.png" width="200" height="200" alt="petehead" class="headshot">
-        <p>Lorem = Paragerams</p>
-    </main> -->
-    
-    <h2><a href="Career.html"><strong>Career!</strong></a></h2> -->
 </body>
 </html>
 
