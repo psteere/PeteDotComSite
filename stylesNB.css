@@ -1,0 +1,82 @@
+
+:root{
+    --body-bg: #123;
+    --nav-bg: rgb(69, 92, 115);
+}
+
+*{
+ box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    margin: 0;
+    font-size: 1.25rem;
+    background: var(--body-bg);
+    color: white;
+    display: grid;
+    grid-template-columns: 20rem 2fr;
+    gap: 5rem;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    max-height: 100%vh;
+    background-color: var(--nav-bg);
+}
+
+.nav-1{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: grid;
+    gap: 4rem;
+    padding-block: 2rem;
+    font-size: 2rem;
+}
+
+.nav-1 li {
+    padding: 1.5rem 2rem;
+    margin-left: 2rem;
+    border-radius: 100vw 0 0 100vw;
+}
+
+.nav-1 li.active{
+    background: var(--body-bg);
+    position: relative;
+}
+
+.nav-1 li.active::before,
+.nav-1 li.active::after {
+    --border-radius: 2rem;
+
+    content: '';
+    position: absolute;
+    width: var(--border-radius);
+    height: var(--border-radius);
+    right: 0;
+    background: var(--nav-bg);
+    border-radius: 100vw;
+}
+
+.nav-1 li.active::before {
+    top: calc(var(--border-radius) * -1);
+    border-radius: 0 0 100vw 0;
+    box-shadow: 7px 7px 0 5px var(--body-bg);
+}
+
+.nav-1 li.active::after {
+    bottom: calc(var(--border-radius) * -1);
+    border-radius: 0 100vw 0 0;
+    box-shadow: 7px -7px 0 5px var(--body-bg);
+}
+
+
+
+.nav-1 a{
+    text-decoration: none;
+    color: white;
+}
+
