@@ -13,7 +13,6 @@
             <header>
                 <h2 class="logo">Home</h2>
                 <div class="toggle"></div>
-                <audio id="Whoo" src="media/WooHoo.mp3" preload="auto"></audio>
             </header>
             <div class="overlay"></div>
             <div class="text">
@@ -76,11 +75,6 @@
         <script>
             const menuToggle = document.querySelector('.toggle')
             const navBar = document.querySelector('.navbar')
-            const Whoo = document.getElementById("Whoo");
-
-            menuToggle.addEventListener('click', function() {
-                Whoo.play();
-            }, { once: true });
 
             menuToggle.addEventListener('click', () =>{
                 menuToggle.classList.toggle('active')
