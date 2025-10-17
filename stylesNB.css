@@ -51,7 +51,6 @@ nav {
 .nav-1 li.active::before,
 .nav-1 li.active::after {
     --border-radius: 2rem;
-
     content: '';
     position: absolute;
     width: var(--border-radius);
@@ -72,8 +71,6 @@ nav {
     border-radius: 0 100vw 0 0;
     box-shadow: 7px -7px 0 5px var(--body-bg);
 }
-
-
 
 .nav-1 a{
     text-decoration: none;

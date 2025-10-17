@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="6">
     <title>Pete.st</title>
     <link rel="icon" type="image/png" href="./media/headshot_pete_favicon.png">
     <link rel="stylesheet" type="text/css" href="styles.css">
@@ -12,7 +13,9 @@
         <section class="showcase">
             <header>
                 <h2 class="logo">Home</h2>
+                <h2 class="logo">Another</h2>
                 <div class="toggle"></div>
+                <audio id="Whoo" src="media/WooHoo.mp3" preload="auto"></audio>
             </header>
             <div class="overlay"></div>
             <div class="text">
@@ -75,6 +78,11 @@
         <script>
             const menuToggle = document.querySelector('.toggle')
             const navBar = document.querySelector('.navbar')
+            const Whoo = document.getElementById("Whoo");
+
+            menuToggle.addEventListener('click', function() {
+                Whoo.play();
+            }, { once: true });
 
             menuToggle.addEventListener('click', () =>{
                 menuToggle.classList.toggle('active')
