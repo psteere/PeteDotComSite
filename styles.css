@@ -94,6 +94,29 @@ body{
   transition: 0.7s;
 }
 
+.showcase header button{
+  background-color: var(--Ybg1);
+  border-radius: 50px;
+  padding: 10px 10px;
+  color: var(--Bbg1);
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: .5s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#Button1 img {
+      width: 2em;   /* 👈 image size relative to button */
+      height: auto; /* maintain aspect ratio */
+    }
+
+#Button2 img {
+    width: 2em;   /* 👈 image size relative to button */
+    height: auto; /* maintain aspect ratio */
+  }   
+
 .logo {
   text-transform: uppercase;
   background-color: var(--TermColor);
@@ -144,7 +167,7 @@ body{
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--Bborder);
+  background: var(--bg-dark);
   mix-blend-mode: overlay;
 }
 

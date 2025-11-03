@@ -12,11 +12,18 @@
     <body>
         <section class="showcase">
             <header>
+                <button  id="Button1"><img src="media/pauseplay.png"></img></button>
+                <audio id="Song1" src="media/cozycoffeehouse.mp3" preload="auto"></audio>
+
+                <button  id="Button2" class="two"><img src="media/pauseplay.png"></img></button>
+                <audio id="Song2" src="media/screamvillain.mp3" preload="auto"></audio>
+
                 <h2 class="logo">Home</h2>
                 <h2 class="logo">Another</h2>
                 <div class="toggle"></div>
                 <audio id="Whoo" src="media/WooHoo.mp3" preload="auto"></audio>
             </header>
+
             <div class="overlay"></div>
             <div class="text">
                 <h2>Find</h2>
@@ -43,34 +50,30 @@
         <script>
             // Get a reference to the button
             const button1 = document.getElementById('Button1');
-            const Song1 = document.getElementById("Song1");
+            const song1 = document.getElementById("Song1");
 
             // Add an event listener to change the text when clicked
             button1.addEventListener('click', () => {
-                if (Song1.paused){
-                    Song1.play();
-                    button1.textContent = "that's not gonna do you any good...";
+                if (song1.paused){
+                    song1.play();
                 } else{
-                    Song1.pause();
-                    button1.textContent = "Click Me!";
+                    song1.pause();
                 }
             });
         </script>
 
         <!-- //Button 2 Actions -->
         <script>
-             // Get a reference to the button
+            // Get a reference to the button
             const button2 = document.getElementById('Button2');
-            const Song2 = document.getElementById("Song2");
+            const song2 = document.getElementById("Song2");
 
             // Add an event listener to change the text when clicked
             button2.addEventListener('click', () => {
-                if (Song2.paused){
-                    Song2.play();
-                    button2.textContent = "Woah!";
+                if (song2.paused){
+                    song2.play();
                 } else{
-                    Song2.pause();
-                    button2.textContent = "Try Me!";
+                    song2.pause();
                 }
             });
         </script>
