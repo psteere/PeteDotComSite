@@ -54,8 +54,136 @@
   --TermColor: #282828;
 }
 
-.hamburger span{
-    width: 100%
-    height: 4px;
-    background-color: ;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: var(--Blogo);
+}
+
+.nav{
+  height: 100%;
+  width: 200px;
+  position: absolute;
+  right: 0;
+  background-color: var(--Ylogo);
+  transition: 0.5s ease;
+}
+
+ul {
+  padding-top: 70px;
+}
+
+ul li{
+  list-style: none;
+  text-align: center;
+  font-size: 25px;
+}
+
+ul li a{
+  color: var(--Blogo);
+  font-weight: 500;
+  padding: 5px 0;
+  display: block;
+  text-transform: capitalize;
+  text-decoration: none;
+  transition: 0.2s ease-out;
+}
+
+ul li a i{
+  width: 40px;
+  text-align: center;
+  font-size: 15px;
+}
+
+input{
+  display: none;
+  visibility: hidden;
+  -webkit-appearance: none;
+} 
+
+.toggle{
+  position: absolute;
+  right: 80px;
+  height: 30px;
+  width: 30px;
+  top: 15px;
+  z-index: 1;
+  cursor: url("./media/cursorCP.cur"), pointer;
+  border-radius: 2px;
+  /* background-color: var(--Blogo); */
+  box-shadow: 3px 4px 2px hsla(0, 0%, 0%, 0.15), 4px 6px 3px hsla(0, 0%, 0%, 0.25), 0px 0px 0px 1px hsla(0, 0%, 0%, 0.15) ;
+  border-radius: 14px;
+}
+
+
+.toggle .common{
+  position: absolute;
+  height: 3px;
+  width: 20px;
+  background-color: var(--Blogo);
+  border-radius: 50px;
+}
+
+.toggle .top_line{
+  margin: 5px;
+  top: 8%;
+  transition: transform 1s ease, top 1s ease;
+}
+
+.toggle .mid_line{
+  margin: 5px;
+  top: 28%;
+  transition: .5s;
+  transition-timing-function: ease;
+}
+
+.toggle .bot_line{
+  margin: 5px;
+  top: 48%;
+  transition: transform 1s ease, top 1s ease;
+}
+
+input:checked ~ .toggle .top_line{
+  animation: movedwn-rotate 1s ease forwards;
+}
+
+@keyframes movedwn-rotate {
+  0% { top: 8%; transform: translateY(0) }
+  50% { top: 28%; transform: translateY(28%) }
+  100% { top: 28%; transform: rotate(45deg); }
+}
+
+input:checked ~ .toggle .mid_line{
+  opacity: 0;
+}
+
+input:checked ~ .toggle .bot_line{
+  margin: 5px;
+  top: 48%;
+  animation: moveup-rotate 1s ease forwards;
+}
+
+@keyframes moveup-rotate {
+  0% { top: 48%; transform: translateY(0) }
+  50% { top: 28%; transform: translateY(28%) }
+  100% { top: 28%; transform: rotate(-45deg); }
+}
+
+input:not(:checked) ~ .toggle .top_line {
+  animation: moveup-rotate 1s ease reverse;
+}
+
+input:not(:checked) ~ .toggle .bot_line {
+  animation: movedwn-rotate 1s ease reverse;
+}
+
+input:not(:checked) ~ .toggle .mid_line {
+  opacity: 1;
+  transition: 1s;
+  transition-delay: .9s;
+
 }
