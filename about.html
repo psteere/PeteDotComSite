@@ -11,19 +11,23 @@
     <body>
         <section class="showcase">
             <header>
-                <h2 class="logo">I'm Pete</h2>
+                <button  id="Button2" class="two"><img src="media/navicons/pauseplay.png"></img></button>
+                <audio id="Song2" src="media/audio/screamvillain.mp3" preload="auto"></audio>
+               
+                <h2 class="logo">page1</h2>
+                <h2 class="logo">page2</h2>
+                <h2 class="logo">page3</h2>
+                <h2 class="logo">page4</h2>
+
                 <div class="toggle"></div>
             </header>
-            <video src="media/ShredMontWebwicksmall.mp4" muted loop autoplay></video>
+            <video src="media/audio/ShredMontWebwicksmall.mp4" muted loop autoplay></video>
             <div class="overlay"></div>
             <div class="text">
-                <h2>Present</h2>
-                <h3>- Work<br>- Family<br>- Golf<br></h3>
-                <p></p>
-            
-                <h2>Past</h2>
-                <h3>Skateboarding, Basketball</h3>
-                <p> is a menu somewhere on this page. <br>You gotta click somethin.</p>                            
+                <h1>H1 Title</h1>
+                <h2>H2 Title</h2>
+                <h3>H3 Skate</h3>
+                <p> P aragraph here <br>You gotta click somethin. <br> read more!!!</p>                            
             </div>
         
             <ul class="social">
@@ -40,7 +44,23 @@
             </ul>
         </nav>
     
+       <!-- //Button 2 Actions -->
         <script>
+            // Get a reference to the button
+            const button2 = document.getElementById('Button2');
+            const song2 = document.getElementById("Song2");
+
+            // Add an event listener to change the text when clicked
+            button2.addEventListener('click', () => {
+                if (song2.paused){
+                    song2.play();
+                } else{
+                    song2.pause();
+                }
+            });
+        </script>
+       
+       <script>
             const menuToggle = document.querySelector('.toggle')
             const navBar = document.querySelector('.navbar')
             const Whoo = document.getElementById("Whoo");

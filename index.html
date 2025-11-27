@@ -13,14 +13,15 @@
         <section class="showcase">
             <header>
                 <button  id="Button1"><img src="media/navicons/pauseplay.png"></img></button>
-                <audio id="Song1" src="media/cozycoffeehouse.mp3" preload="auto"></audio>
-
-                <button  id="Button2" class="two"><img src="media/navicons/pauseplay.png"></img></button>
-                <audio id="Song2" src="media/screamvillain.mp3" preload="auto"></audio>
-
-                <h2 class="logo">Home</h2>
-                <h2 class="logo">Another</h2>
-                <div class="toggle"></div>
+                <audio id="Song1" src="media/audio/cozycoffeehouse.mp3" preload="auto"></audio>
+                
+                <div class="toggle">
+                    <div class="burger">
+                        <span class="top_line common"></span>
+                        <span class="mid_line common"></span>
+                        <span class="bot_line common"></span>
+                    </div>
+                </div>
                 <audio id="Whoo" src="media/WooHoo.mp3" preload="auto"></audio>
             </header>
 
@@ -63,22 +64,6 @@
             });
         </script>
 
-        <!-- //Button 2 Actions -->
-        <script>
-            // Get a reference to the button
-            const button2 = document.getElementById('Button2');
-            const song2 = document.getElementById("Song2");
-
-            // Add an event listener to change the text when clicked
-            button2.addEventListener('click', () => {
-                if (song2.paused){
-                    song2.play();
-                } else{
-                    song2.pause();
-                }
-            });
-        </script>
-    
         <script>
             const menuToggle = document.querySelector('.toggle')
             const navBar = document.querySelector('.navbar')
