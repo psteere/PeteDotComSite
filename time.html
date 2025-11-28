@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="refresh" content="6"> -->
+    <title>Pete.st</title>
+    <link rel="icon" type="image/png" href="./media/headshot_pete_favicon.png">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <body>
+        <section class="showcase">
+            <header>
+                <button  id="Button"><img src="media/navicons/pauseplay.png"></img></button>
+                <audio id="Song1" src="media/audio/cozycoffeehouse.mp3" preload="auto"></audio>
+                
+                <div class="toggle">
+                    <div class="burger">
+                        <span class="top_line common"></span>
+                        <span class="mid_line common"></span>
+                        <span class="bot_line common"></span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="overlay"></div>
+            <div class="text">
+                <h2>What's Happening?</h2>                
+                <div class="timer-badge">
+                    <br><span class="label">Pete's Age:</span>
+                    <span class="icon">⏳</span>
+                    <span id="eventStatus">Loading...</span>
+                    <span id="eventTime">--</span>
+                </div>
+                
+                <br>
+                <div class="timer-up" data-start="1990-04-28T14:00:00">
+                <div class="label">My Exact Age <span class="icon">🟢</span></div>
+                <div class="count"></div>
+                </div>
+                
+                <br>
+                <div class="timer-up" data-start="1989-01-27T16:15:00">
+                <div class="label">L Exact Age <span class="icon">🟢</span></div>
+                <div class="count"></div>
+                </div>
+                
+                <br>
+                <div class="timer-up" data-start="2021-04-02T13:04:00">
+                <div class="label">A Exact Age <span class="icon">🔵</span></div>
+                <div class="count"></div>
+                </div>
+                
+                <br>
+                <div class="timer-up" data-start="2023-11-16T09:20:00">
+                <div class="label">D Exact Age <span class="icon">🔵</span></div>
+                <div class="count"></div>
+                </div>
+                
+                <h2>What's Coming?</h2>
+
+                <br>
+                <div class="timer" data-date="2025-12-31T23:59:59">
+                <div class="label">New Year Countdown <span class="icon">⏳</span></div>
+                <div class="countdown"></div>
+                </div>
+                
+                <br>
+                <div class="timer" data-date="2025-11-27T23:00:00">
+                <div class="label">Next Big Thing! <span class="icon">⏳</span></div>
+                <div class="countdown"></div>
+                </div>
+
+            </div>
+            <ul class="social">
+                <li><a href="https://www.linkedin.com/in/petesteere/" target="_blank"><img src="media/linkedin.png" alt=""></a></li>
+            </ul>
+        </section>
+
+        <nav class="navbar"> 
+            <!-- <div class="logo"><a href="#"><img src="media/plogo.png" alt="petelogo"></div> -->
+            <ul>
+                <li><a href="./index.html">Home</a></li> 
+                <li><a href="./about.html">About Me</a></li> 
+                <li><a href="./time.html">Time</a></li> 
+                <li><a href="./career.html">Career</a></li>                
+                <li><a href="./NavBars.html">NavBar Practice</a></li>
+                <li><a href="./NavBars2.html">NavBar2 Practice</a></li>
+            </ul>
+        </nav>
+
+        
+        <!-- //Button Actions -->
+        <script>
+            // Get a reference to the button
+            const button = document.getElementById('Button');
+            const song1 = document.getElementById("Song1");
+
+            // Add an event listener to change the text when clicked
+            button.addEventListener('click', () => {
+                if (song1.paused){
+                    song1.play();
+                } else{
+                    song1.pause();
+                }
+            });
+        </script>
+
+        <!-- //NavBar Toggle-->
+        <script>
+            const menuToggle = document.querySelector('.toggle')
+            const navBar = document.querySelector('.navbar')
+            
+
+            menuToggle.addEventListener('click', () =>{
+                menuToggle.classList.toggle('active')
+                navBar.classList.toggle('active')
+            })
+        </script>
+        
+        <!-- //Timer take 1-->
+        <script>
+            let eventInterval = null;
+
+            function formatTime(ms) {
+            let totalSeconds = Math.floor(ms / 1000);
+            let days = Math.floor(totalSeconds / 86400);
+            totalSeconds %= 86400;
+            let hours = Math.floor(totalSeconds / 3600);
+            totalSeconds %= 3600;
+            let minutes = Math.floor(totalSeconds / 60);
+            let seconds = totalSeconds % 60;
+
+            return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+
+            function startEventTimer() {
+            clearInterval(eventInterval);
+
+            const start = new Date("1990-28-01T14:00:00");
+            const end = new Date("2025-02-01T18:00:00");
+
+            eventInterval = setInterval(() => {
+            const now = new Date();
+
+            if (now < start) {
+            document.getElementById("eventStatus").innerText = "⏳";
+            document.getElementById("eventTime").innerText = formatTime(start - now);
+            }
+            else if (now >= start && now <= end) {
+            document.getElementById("eventStatus").innerText = "🟢";
+            document.getElementById("eventTime").innerText = formatTime(now - start);
+            }
+            else {
+            document.getElementById("eventStatus").innerText = "🔵";
+            document.getElementById("eventTime").innerText = formatTime(now - end);
+            }
+            }, 1000);
+            }
+            startEventTimer();
+            </script>
+
+        <!-- //Timer CountDOWNS-->
+            <script>
+            function updateTimers() {
+                const timers = document.querySelectorAll(".timer");
+
+                timers.forEach(timer => {
+                    const endDate = new Date(timer.dataset.date).getTime();
+                    const now = Date.now();
+                    const diff = endDate - now;
+
+                    const cd = timer.querySelector(".countdown");
+
+                    if (diff <= 0) {
+                        cd.textContent = "Time's up!";
+                        return;
+                    }
+
+                    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                    const m = Math.floor((diff / (1000 * 60)) % 60);
+                    const s = Math.floor((diff / 1000) % 60);
+
+                    cd.textContent = `${d}d ${h}h ${m}m ${s}s`;
+                });
+            }
+
+            setInterval(updateTimers, 1000);
+            updateTimers();
+            </script>
+
+        <!-- //Timer CountUPS-->
+            <script>
+            function updateCountUps() {
+                const timers = document.querySelectorAll(".timer-up");
+
+                timers.forEach(timer => {
+                    const startDate = new Date(timer.dataset.start).getTime();
+                    const now = Date.now();
+                    const diff = now - startDate;
+
+                    const cd = timer.querySelector(".count");
+
+                    if (diff < 0) {
+                        cd.textContent = "Starts in the future!";
+                        return;
+                    }
+
+                    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                    const m = Math.floor((diff / (1000 * 60)) % 60);
+                    const s = Math.floor((diff / 1000) % 60);
+                    const y = (diff / (1000 * 60 * 60 * 24 * 365.25)).toFixed(2);
+
+                    cd.innerHTML = `${d.toLocaleString()}d ${h}h ${m}m ${s}s<br>(${y})`;
+                    
+                });
+            }
+
+            setInterval(updateCountUps, 1000);
+            updateCountUps();
+            </script>
+
+        <!-- //Timer IconUpdate-->
+            <script>
+            function updateTimers() {
+            const timers = document.querySelectorAll(".timer");
+
+
+            timers.forEach(timer => {
+            const startDate = new Date(timer.dataset.start).getTime();
+            const now = Date.now();
+            let diff = startDate - now;
+
+
+            const cd = timer.querySelector(".count");
+            const icon = timer.querySelector(".icon");
+
+
+            if (diff >= 0) {
+            // Countdown before the event
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const m = Math.floor((diff / (1000 * 60)) % 60);
+            const s = Math.floor((diff / 1000) % 60);
+            const years = (diff / (1000 * 60 * 60 * 24 * 365.25)).toFixed(2);
+            cd.innerHTML = `${d}d ${h}h ${m}m ${s}s<br>(${years} years)`;
+            icon.textContent = '⏳';
+            } else {
+            // Time since the event passed
+            diff = now - startDate;
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const m = Math.floor((diff / (1000 * 60)) % 60);
+            const s = Math.floor((diff / 1000) % 60);
+            const years = (diff / (1000 * 60 * 60 * 24 * 365.25)).toFixed(2);
+            cd.innerHTML = `${d}d ${h}h ${m}m ${s}s<br>(${years} years)`;
+
+            // Change icon dynamically after event passed
+            icon.textContent = '❗';
+            }
+            });
+            }
+
+            setInterval(updateTimers, 1000);
+            updateTimers();
+            </script>
+    </body>
+
+</body>
+</html>
+
+
+
+
