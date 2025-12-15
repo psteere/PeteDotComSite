@@ -62,11 +62,22 @@
 
 body{
   background-color: var(--Blogo);
+  width: 100vw;
 }
 
 .nav{
   height: 100%;
-  width: 200px;
+  width: 0px;
+  position: absolute;
+  right: -200px;
+  background-color: var(--Ylogo);
+  
+  transition: 0.5s ease;
+}
+
+.nav.active{
+  height: 100%;
+  width: 260px;
   position: absolute;
   right: 0;
   background-color: var(--Ylogo);
@@ -107,18 +118,31 @@ input{
 
 .toggle{
   position: absolute;
-  right: 80px;
+  right: 5%;
   height: 30px;
   width: 30px;
   top: 15px;
   z-index: 1;
-  cursor: url("./media/cursorCP.cur"), pointer;
+  cursor: url("./media/navicons/cursorPP.cur"), pointer;
   border-radius: 2px;
-  /* background-color: var(--Blogo); */
+  background-color: var(--Ylogo);
   box-shadow: 3px 4px 2px hsla(0, 0%, 0%, 0.15), 4px 6px 3px hsla(0, 0%, 0%, 0.25), 0px 0px 0px 1px hsla(0, 0%, 0%, 0.15) ;
   border-radius: 14px;
 }
 
+.toggle.active{
+  position: absolute;
+  right: 5%;
+  height: 30px;
+  width: 30px;
+  top: 15px;
+  z-index: 1;
+  cursor: url("./media/navicons/cursorCP.cur"), pointer;
+  border-radius: 2px;
+  background-color: var(--Blogo);
+  box-shadow: 3px 4px 2px hsla(0, 0%, 0%, 0.15), 4px 6px 3px hsla(0, 0%, 0%, 0.25), 0px 0px 0px 1px hsla(0, 0%, 0%, 0.15) ;
+  border-radius: 14px;
+}
 
 .toggle .common{
   position: absolute;
@@ -128,10 +152,14 @@ input{
   border-radius: 50px;
 }
 
+
 .toggle .top_line{
   margin: 5px;
   top: 8%;
   transition: transform 1s ease, top 1s ease;
+}
+.toggle .top_line.active{
+  background-color: var(--Ylogo);
 }
 
 .toggle .mid_line{
@@ -140,11 +168,17 @@ input{
   transition: .5s;
   transition-timing-function: ease;
 }
+.toggle .mid_line.active{
+  background-color: var(--Ylogo);
+}
 
 .toggle .bot_line{
   margin: 5px;
   top: 48%;
   transition: transform 1s ease, top 1s ease;
+}
+.toggle .bot_line.active{
+  background-color: var(--Ylogo);
 }
 
 input:checked ~ .toggle .top_line{
@@ -185,5 +219,4 @@ input:not(:checked) ~ .toggle .mid_line {
   opacity: 1;
   transition: 1s;
   transition-delay: .9s;
-
 }

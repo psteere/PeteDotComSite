@@ -212,8 +212,8 @@ body{
 
 .text a:hover{
   letter-spacing: 6px;
-  background-color: var(--Ybg1);
-  color: var(--Bbg1);
+  background-color: var(--Ylogo);
+  color: var(--Blogo);
 }
 
 

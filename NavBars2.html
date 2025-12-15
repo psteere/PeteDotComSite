@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pete.st</title>
+    <!-- <meta http-equiv="refresh" content="6"> -->
     <link rel="icon" type="image/png" href="./media/headshot_pete_favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="stylesNB2.css">
@@ -21,9 +22,8 @@
         </div>
 
         <div class="nav">
-            <!-- <h1>title</h1> -->
             <ul>
-                <li><a href="#"><i class="fa-solid fa-house"></i>Item 1</a></li>
+                <li><a href="./index.html"><i class="fa-solid fa-house"></i>Home</a></li>
                 <li><a href="#"><i class="fa-solid fa-eye"></i>Item 2</a></li>
                 <li><a href="#"><i class="fa-solid fa-trophy"></i>Item 3</a></li>
                 <li><a href="#"><i class="fa-solid fa-gears"></i>Item 4</a></li>
@@ -31,7 +31,25 @@
                 <li><a href="#"><i class="fa-solid fa-camera"></i>Item 6</a></li>
             </ul>
         </div>
-
     </label>
+
+
+    <script>
+            const menuToggle = document.querySelector('.toggle')
+            const navBar = document.querySelector('.nav')
+            const tbar = document.querySelector('.top_line')
+            const mbar = document.querySelector('.mid_line')
+            const bbar = document.querySelector('.bot_line')
+
+            
+
+            menuToggle.addEventListener('click', () =>{
+                menuToggle.classList.toggle('active')
+                navBar.classList.toggle('active')
+                tbar.classList.toggle('active')
+                mbar.classList.toggle('active')
+                bbar.classList.toggle('active')
+            })
+    </script>
 
 </body>
