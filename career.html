@@ -11,9 +11,18 @@
     <body>
         <section class="showcase">
             <header>
-                    <h2 class="logo">About My Career</h2>
-                    <div class="toggle"></div>
+                <button  id="Button"><img src="media/navicons/pauseplay.png"></img></button>
+                <audio id="Song1" src="media/audio/screamvillain.mp3" preload="auto"></audio>
+                
+                <div class="toggle">
+                    <div class="burger">
+                        <span class="top_line common"></span>
+                        <span class="mid_line common"></span>
+                        <span class="bot_line common"></span>
+                    </div>
+                </div>
             </header>
+
             <div class="overlay"></div>
             <div class="text">
 
@@ -46,6 +55,7 @@
             <ul>
                <li><a href="./index.html">Home</a></li> 
                 <li><a href="./about.html">About Me</a></li> 
+                <li><a href="./time.html">Time</a></li> 
                 <li><a href="./career.html">Career</a></li>                
                 <li><a href="./NavBars.html">NavBar Practice</a></li>
             </ul>
@@ -64,6 +74,22 @@
                 menuToggle.classList.toggle('active')
                 navBar.classList.toggle('active')
             })
+        </script>
+
+        <!-- //Button Actions -->
+        <script>
+            // Get a reference to the button
+            const button = document.getElementById('Button');
+            const song1 = document.getElementById("Song1");
+
+            // Add an event listener to change the text when clicked
+            button.addEventListener('click', () => {
+                if (song1.paused){
+                    song1.play();
+                } else{
+                    song1.pause();
+                }
+            });
         </script>
     </body>
 </body>

@@ -63,7 +63,7 @@
 }
 
 body{
-  cursor: url("./media/cursorCP.cur"), auto;
+  cursor: url("./media/navicons/cursorCP.cur"), auto;
 }
 
 .showcase{
@@ -85,19 +85,19 @@ body{
   left: 0;
   width: 100%;
   padding: 20px 100px;
-  padding-bottom: 0px;
+  padding-bottom: 15px;
   z-index: 990;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--highlight);
+  background: var(--gradient);
   transition: 0.7s;
 }
 
 .showcase header button{
   background-color: var(--Ybg1);
   border-radius: 50px;
-  padding: 10px 10px;
+  padding: 8px 8px;
   color: var(--Bbg1);
   font-weight: bold;
   text-transform: uppercase;
@@ -107,21 +107,16 @@ body{
   justify-content: center;
 }
 
-#Button1 img {
-      width: 2em;   /* 👈 image size relative to button */
+#Button img {
+      width: 1em;   /* 👈 image size relative to button */
       height: auto; /* maintain aspect ratio */
     }
-
-#Button2 img {
-    width: 2em;   /* 👈 image size relative to button */
-    height: auto; /* maintain aspect ratio */
-  }   
 
 .logo {
   text-transform: uppercase;
   background-color: var(--TermColor);
   color: var(--TermText2);
-  cursor: url("./media/cursorPP.cur"), auto;
+  cursor: url("./media/navicons/cursorPP.cur"), auto;
   margin: 5px 0px 0px 0px;
   padding: 9px 2rem; 
   border: 5px solid black;
@@ -129,26 +124,89 @@ body{
   box-shadow: 10px 10px 0px var(--Ybg1);
 }
 
+input{
+  display: none;
+  visibility: hidden;
+  -webkit-appearance: none;
+} 
+
 .toggle{
   position: relative;
-  width: 60px;
-  height: 60px;
-  background: url('media/plogo.png');
-  background-repeat: no-repeat;
-  background-size: 30px;
-  background-position: center;
-  cursor: url("./media/cursorPP.cur"), auto;
-  z-index: 1000;
-  right: 0;
+  background-color: var(--Ylogo);
+  height: 30px;
+  width: 30px;
+  right: 1px;
+  z-index: 1;
+  cursor: url("./media/cursorCP.cur"), pointer;
+  border-radius: 2px;
+  /* background-color: var(--Blogo); */
+  box-shadow: 3px 4px 2px hsla(0, 0%, 0%, 0.15), 4px 6px 3px hsla(0, 0%, 0%, 0.25), 0px 0px 0px 1px hsla(0, 0%, 0%, 0.15) ;
+  border-radius: 14px;
   transition: .75s ease;
 }
 
+.toggle .common{
+  position: absolute;
+  height: 3px;
+  width: 20px;
+  background-color: var(--Blogo);
+  border-radius: 50px;
+}
+
+.toggle .top_line{
+  margin: 5px;
+  top: 10%;
+  transition: transform 1s ease, top 1s ease;
+}
+
+.toggle .mid_line{
+  margin: 5px;
+  top: 29%;
+  transition: .5s;
+}
+
+.toggle .bot_line{
+  margin: 5px;
+  top: 49%;
+  transition: transform 1s ease, top 1s ease;
+}
+
 .toggle.active{
-  right: 135px;
-  background-repeat: no-repeat;
-  background-size: 30px;
-  background-position: center;
-  z-index: 1000;
+  right: 140px;
+}
+
+.toggle.active .common{
+  background-color: red;
+}
+
+
+.toggle.active .top_line{
+  animation: movedwn-rotate 1s ease forwards;
+  transition: transform 1s ease, top 1s ease;
+}
+
+@keyframes movedwn-rotate {
+  0% { top: 8%; transform: translateY(0) }
+  50% { top: 28%; transform: translateY(28%) }
+  100% { top: 28%; transform: rotate(45deg); }
+}
+
+.toggle.active .mid_line{
+  opacity: 0;
+  transition: .5s;
+}
+
+.toggle.active .bot_line{
+  margin: 5px;
+  top: 48%;
+  animation: moveup-rotate 1s ease forwards;
+  transition: transform 1s ease, top 1s ease;
+}
+
+@keyframes moveup-rotate {
+  0% { top: 48%; transform: translateY(0) }
+  50% { top: 28%; transform: translateY(28%) }
+  100% { top: 28%; transform: rotate(-45deg); }
 }
 
 .showcase video{
@@ -163,7 +221,8 @@ body{
 
 .overlay{
   position: absolute;
-  top: 0;
+  align-items: center;
+  top: 10;
   left: 0;
   width: 100%;
   height: 100%;
@@ -174,10 +233,18 @@ body{
 .text{
   /* position: relative; */
   z-index: 10;
+  align-items: top;
 }
 
+.text h1 {
+  font-size: 5em;
+  font-weight: 800;
+  line-height: 1em;
+  text-transform: uppercase;
+  padding: 15px 0px 0px 0px;
+}
 .text h2 {
-  font-size: 6em;
+  font-size: 3em;
   font-weight: 800;
   line-height: 1em;
   text-transform: uppercase;
@@ -185,7 +252,7 @@ body{
 }
 
 .text h3{
-  font-size: 3em;
+  font-size: 2em;
   font-weight: 700;
   line-height: 1em;
 }
@@ -257,7 +324,7 @@ body{
   transform: scale(0.5);
   transform-origin: center;
   transition: transform 0.5s ease;
-  cursor: url("./media/cursorPP.cur"), pointer !important;
+  cursor: url("./media/navicons/cursorPP.cur"), pointer !important;
 }
 
 .social li a:hover{
@@ -271,8 +338,9 @@ body{
   right: -300px;
   width: 300px;
   height: 100%;
+  top: 30px;
   display: flex;
-  align-items: center;
+  align-items: top;
   justify-content: center;
   background: var(--gradient);
   transition: .7s ease;
@@ -307,11 +375,11 @@ nav ul li:last-child   a {border-left: 10px solid var(--Bbg1);}
 
 nav li a::after{
   content: '';
-  height: 100%;
+  height: 0px;
   left: 0;
   top: 0;
   width: 0px;
-  position: aboslute;
+  position: absolute;
   transition: all 0.3s ease;
 }
 
@@ -332,17 +400,14 @@ nav ul li:last-child   a::after {background: var(--Bbg1);}
                /* keeps image proportion correct */
 }
 
-
-
-
 .navbar.active{
   position: fixed;
-  top: 0;
+  top: 30px;
   right: 0px;
   width: 300px;
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: top;
   justify-content: center;
   background: var(--gradient);
   z-index: 900;
@@ -381,44 +446,27 @@ nav ul li:last-child   a::after {background: var(--Bbg1);}
 
 .navbar.active li a::after{
   content: '';
-  height: 100%;
+  height: 0px;
   left: 0;
   top: 0;
-  width: 0px;
-  position: aboslute;
+  width: 0%;
+  position: absolute;
   transition: all 0.3s ease;
 }
 
-.navbar.active li a:hover::after {width: 100%;}
-.navbar.active ul li:first-child a::after {background: var(--Ybg1);}
-.navbar.active ul li:nth-child(2) a::after {background: var(--Bbg1);}
-.navbar.active ul li:nth-child(3) a::after {background: var(--Ybg1);}
-.navbar.active ul li:nth-child(4) a::after {background: var(--Bbg1);}
-.navbar.active ul li:nth-child(5) a::after {background: var(--Ybg1);}
-.navbar.active ul li:nth-child(6) a::after {background: var(--Bbg1);}
-.navbar.active ul li:nth-child(7) a::after {background: var(--Ybg1);}
-.navbar.active ul li:nth-child(8) a::after {background: var(--Ybg1);}
-.navbar.active ul li:last-child   a::after {background: var(--Bbg1);}
+.navbar.active ul li:first-child a:hover {color: var(--Bbg1); background-color: var(--Ybg1);}
+.navbar.active ul li:nth-child(2) a:hover {color: var(--Ybg1); background-color: var(--Bbg1);}
+.navbar.active ul li:nth-child(3) a:hover {color: var(--Bbg1); background-color: var(--Ybg1);}
+.navbar.active ul li:nth-child(4) a:hover {color: var(--Ybg1); background-color: var(--Bbg1);}
+.navbar.active ul li:nth-child(5) a:hover {color: var(--Bbg1); background-color: var(--Ybg1);}
+.navbar.active ul li:nth-child(6) a:hover {color: var(--Ybg1); background-color: var(--Bbg1);}
+.navbar.active ul li:nth-child(7) a:hover {color: var(--Bbg1); background-color: var(--Ybg1);}
 
-/* 
-/* .navbar.active ul li a:hover{
-  color: var(--Bbg1);
-  background-color: var(--Ybg1);
-}
-
-.navbar.active:hover{
-    background: var(--Btext);
-}
-
-.navbar.active img{
-    width: 50px;               
-    height: 50px;               /* keeps image proportion correct
-} */
 
 @media (max-width: 790px), (max-height: 450px) {
   
   .toggle.active{
-    right: 95px;
+    right: 180px;
   }
 
   .navbar.active {
@@ -434,7 +482,7 @@ nav ul li:last-child   a::after {background: var(--Bbg1);}
     text-transform: uppercase;
     background-color: var(--TermColor);
     color: var(--TermText2);
-    cursor: url("./media/cursorPP.cur"), auto;
+    cursor: url("./media/navicons/cursorPP.cur"), auto;
     margin: 5px 0px 0px 0px;
     padding: 9px 2rem; 
     border: 5px solid black;
