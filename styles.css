@@ -231,9 +231,8 @@ input{
 }
 
 .text{
-  /* position: relative; */
+  position: relative;
   z-index: 10;
-  align-items: top;
 }
 
 .text h1 {
@@ -283,27 +282,6 @@ input{
   color: var(--Blogo);
 }
 
-
-.text button{
-  background-color: var(--Ybg1);
-  border-radius: 30px;
-  display: block;
-  font-size: 1em;
-  padding: 10px 30px;
-  text-decoration: none;
-  color: var(--Bbg1);
-  margin-top: 10px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  transition: .5s;
-}
-
-.text button:hover{
-  letter-spacing: 10px;
-  color: var(--Ybg1);
-  background-color: var(--Bbg1);
-}
-
 .social{
   position: absolute;
   bottom: 20px;
@@ -335,7 +313,7 @@ input{
   position: fixed;
   padding-top: 45px;
   padding-bottom: 30px;
-  right: -300px;
+  right: 0px;
   width: 300px;
   height: 100%;
   top: 30px;
@@ -345,11 +323,13 @@ input{
   background: var(--gradient);
   transition: .7s ease;
   z-index: 900;
- 
 }
 
 .navbar ul{
   list-style: none;
+  position: relative;
+  list-style: none; 
+  width: 300px;
 }
 
 .navbar ul li a{
@@ -357,21 +337,18 @@ input{
   width: 300px;
   padding: 20px;
   text-decoration: none;
-  font-size: 24px;
-  color: var(--Ybg1);
-  transition: .5s;
-  
+  font-size: 10px;
+  color: var(--gradient);
+  transition: .7s;
 }
 
-nav ul li:first-child a {border-left: 10px solid var(--Ybg1);}
-nav ul li:nth-child(2) a {border-left: 10px solid var(--Bbg1);}
-nav ul li:nth-child(3) a {border-left: 10px solid var(--Ybg1);}
-nav ul li:nth-child(4) a {border-left: 10px solid var(--Bbg1);}
-nav ul li:nth-child(5) a {border-left: 10px solid var(--Ybg1);}
-nav ul li:nth-child(6) a {border-left: 10px solid var(--Bbg1);}
-nav ul li:nth-child(7) a {border-left: 10px solid var(--Ybg1);}
-nav ul li:nth-child(8) a {border-left: 10px solid var(--Ybg1);}
-nav ul li:last-child   a {border-left: 10px solid var(--Bbg1);}
+/* For Development Purposes turn this back on */
+  /* nav ul li:first-child a {border-left: 10px solid var(--Ybg1);}
+  nav ul li:nth-child(2) a {border-left: 10px solid var(--Bbg1);}
+  nav ul li:nth-child(3) a {border-left: 10px solid var(--Ybg1);}
+  nav ul li:nth-child(4) a {border-left: 10px solid var(--Bbg1);}
+  nav ul li:nth-child(5) a {border-left: 10px solid var(--Ybg1);}
+  nav ul li:last-child   a {border-left: 10px solid var(--Bbg1);} */
 
 nav li a::after{
   content: '';
@@ -394,11 +371,10 @@ nav ul li:nth-child(7) a::after {background: var(--Ybg1);}
 nav ul li:nth-child(8) a::after {background: var(--Ybg1);}
 nav ul li:last-child   a::after {background: var(--Bbg1);}
 
-.navbar img{
-    width: 50px;                /* same as before */
-    height: 50px;
-               /* keeps image proportion correct */
-}
+/* .navbar img{
+    width: 50px;      //same as before
+    height: 50px;   //keeps image proportion correct
+} */
 
 .navbar.active{
   position: fixed;
@@ -411,6 +387,7 @@ nav ul li:last-child   a::after {background: var(--Bbg1);}
   justify-content: center;
   background: var(--gradient);
   z-index: 900;
+  transition: .7s ease;
 }
 
 .navbar.active ul{
@@ -424,7 +401,7 @@ nav ul li:last-child   a::after {background: var(--Bbg1);}
 }
 
 .navbar.active ul li a{
-   display: block;
+  display: block;
   width: 300px;
   padding: 20px;
   text-decoration: none;
@@ -434,15 +411,15 @@ nav ul li:last-child   a::after {background: var(--Bbg1);}
 }
 
 
-.navbar.active ul li:first-child a {border-left: 10px solid var(--Ybg1);}
-.navbar.active ul li:nth-child(2) a {border-left: 10px solid var(--Bbg1);}
-.navbar.active ul li:nth-child(3) a {border-left: 10px solid var(--Ybg1);}
-.navbar.active ul li:nth-child(4) a {border-left: 10px solid var(--Bbg1);}
-.navbar.active ul li:nth-child(5) a {border-left: 10px solid var(--Ybg1);}
-.navbar.active ul li:nth-child(6) a {border-left: 10px solid var(--Bbg1);}
-.navbar.active ul li:nth-child(7) a {border-left: 10px solid var(--Ybg1);}
-.navbar.active ul li:nth-child(8) a {border-left: 10px solid var(--Ybg1);}
-.navbar.active ul li:last-child   a {border-left: 10px solid var(--Bbg1);}
+.navbar.active ul li:first-child a {border-left: 0px solid var(--Ybg1);}
+.navbar.active ul li:nth-child(2) a {border-left: 0px solid var(--Bbg1);}
+.navbar.active ul li:nth-child(3) a {border-left: 0px solid var(--Ybg1);}
+.navbar.active ul li:nth-child(4) a {border-left: 0px solid var(--Bbg1);}
+.navbar.active ul li:nth-child(5) a {border-left: 0px solid var(--Ybg1);}
+.navbar.active ul li:nth-child(6) a {border-left: 0px solid var(--Bbg1);}
+.navbar.active ul li:nth-child(7) a {border-left: 0px solid var(--Ybg1);}
+.navbar.active ul li:nth-child(8) a {border-left: 0px solid var(--Ybg1);}
+.navbar.active ul li:last-child   a {border-left: 0px solid var(--Bbg1);}
 
 .navbar.active li a::after{
   content: '';
